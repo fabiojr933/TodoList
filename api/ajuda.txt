@@ -1,0 +1,11 @@
+docker-compose up
+
+
+
+npm install --save-dev sequelize-cli     
+npx sequelize-cli init 
+
+
+npx sequelize db:create
+npx sequelize migration:create --name=create-User
+npx sequelize db:migrate 
