@@ -4,7 +4,8 @@
   "description": "",
   "main": "src/server.js",
   "scripts": {
-    "dev": "nodemon server.js"
+    "dev": "nodemon server.js",
+    "test": "jest --coverage"
   },
   "author": "fabeco",
   "license": "ISC",
@@ -13,12 +14,15 @@
     "cors": "^2.8.5",
     "dotenv": "^16.0.1",
     "express": "^4.18.1",
+    "moment": "^2.29.4",
     "nodemon": "^2.0.19",
     "pg": "^8.8.0",
     "pg-hstore": "^2.3.4",
-    "sequelize": "^6.21.4"
+    "sequelize": "^6.21.4",
+    "supertest": "^6.2.4"
   },
   "devDependencies": {
+    "jest": "^29.0.1",
     "sequelize-cli": "^6.4.1"
   }
 }
