@@ -16,10 +16,9 @@ class User extends Model {
                 updated_at: DataTypes.DATE,
             },
             {
-                sequelize: sequelize,
-
-                  
+                sequelize: sequelize,                  
                 modelName: 'users',
+                
                 hooks: {
                     beforeCreate: (user) => {
                         if (!user.name) throw new Validation('name is required');
@@ -44,7 +43,7 @@ class User extends Model {
                     }
                 }
             }
-        );        
+        );       
     }
 }
 module.exports = User;
