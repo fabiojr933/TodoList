@@ -1,4 +1,6 @@
-module.exports = function verifyJWT(token) {
+var jwt = require('jsonwebtoken');
+
+exports.verifyJWT = async (req, res, next) => {
     var token = req.headers['x-access-token'];
     if (!token) return res.status(401).json({ auth: false, message: 'No token provided.' });
 

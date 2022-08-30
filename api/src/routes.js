@@ -2,7 +2,7 @@ const express = require('express');
 const route = express.Router();
 const UserController = require('./controller/UserController');
 const LoginController = require('./controller/LoginController');
-
+const Middleware = require('./middleware/VerifyJWT');
 const User = new UserController();
 const Login = new LoginController();
 

@@ -1,6 +1,7 @@
 const User = require('../models/User');
 const bcrypt = require('bcryptjs');
 var jwt = require('jsonwebtoken');
+const Validation = require('../middleware/Validation');
 
 class LoginController {
 
@@ -12,9 +13,10 @@ class LoginController {
                     'email': req.body.email
                 }
             });
+            if(!user) throw new Validation('User does not exist');
             const { id, name, email, password } = user;
             if (bcrypt.compareSync(req.body.password, password)) {
-                var token = jwt.sign({ email }, process.env.SECRET, {
+                var token = jwt.sign({ id }, process.env.SECRET, {
                     expiresIn: 300 // expires in 5min
                 });
                 data = {
@@ -23,13 +25,14 @@ class LoginController {
                     email: email,
                     token: token
                 }
+            } else {
+                throw new Validation('incorrect password');
             }
             return res.status(200).json(data);
 
         } catch (error) {
-            console.log(error)
             return res.status(401).json({
-                'Error': 'No data found'
+                'Error': error.error
             })
         }
     }
