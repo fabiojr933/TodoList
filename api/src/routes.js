@@ -22,5 +22,6 @@ route.get('/task', Middleware.verifyJWT, Task.index);
 route.get('/task/:id', Middleware.verifyJWT, Task.findById);
 route.delete('/task/:id', Middleware.verifyJWT, Task.delete);
 route.put('/task/:id', Middleware.verifyJWT, Task.update);
+route.post('/task/alert', Task.alert);
 
 module.exports = route;
