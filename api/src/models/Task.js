@@ -15,6 +15,7 @@ class Task extends Model {
                 status: DataTypes.STRING,
                 createdAt: DataTypes.DATE,
                 updated_at: DataTypes.DATE,
+                userId: DataTypes.INTEGER,
             },
             {
                 sequelize: sequelize,
@@ -22,11 +23,12 @@ class Task extends Model {
                
                 hooks: {
                     beforeCreate: (task) => {
+                        task.date = moment();
+                        task.createdAt = moment();
                         if (!task.title) throw new Validation('title is required');
                         if (!task.date) throw new Validation('date is required');
                         if (!task.alarm) throw new Validation('alarm is required');
                         if (!task.userId) throw new Validation('userId is required');
-
                     },
                     beforeUpdate: (task) => {
                         task.updated_at = moment();

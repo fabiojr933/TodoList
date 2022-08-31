@@ -17,7 +17,7 @@ class LoginController {
             const { id, name, email, password } = user;
             if (bcrypt.compareSync(req.body.password, password)) {
                 var token = jwt.sign({ id }, process.env.SECRET, {
-                    expiresIn: 300 // expires in 5min
+                    expiresIn: 300000000 // expires in 5min
                 });
                 data = {
                     id: id,

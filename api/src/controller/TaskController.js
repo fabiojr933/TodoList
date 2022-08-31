@@ -1,18 +1,18 @@
-const User = require('../models/User');
+const Validation = require('../middleware/Validation');
+const Task = require('../models/Task');
 
-class UserController {
+class TaskController {
     async store(req, res) {
         try {
             const data = {
-                name: req.body.name,
-                email: req.body.email,
-                phone: req.body.phone,
-                password: req.body.password
-            }           
-
-            const user = await User.create(data);
-            return res.status(201).json(user);
-
+                title: req.body.title,
+                description: req.body.description,
+                alarm: req.body.alarm,
+                userId: req.userId,
+                status: 'Pendente'
+            }
+            const task = await Task.create(data);
+            return res.status(201).json(task);
         } catch (error) {
             return res.status(400).json({
                 'status': '400',
@@ -20,27 +20,37 @@ class UserController {
             });
         }
     }
+
     async index(req, res) {
         try {
-            const users = await User.findAll();
-            return res.status(200).json(users);
+            const userId = req.userId;
+            const tasks = await Task.findAll({
+                where: {
+                    userId: userId
+                }
+            });
+            return res.status(200).json(tasks);
         } catch (error) {
             return res.status(400).json({
                 'status': '400',
-                'error': 'no items found',
+                'error': error.error
             });
         }
     }
+
+
     async findById(req, res) {
         try {
             const { id } = req.params;
+            const userId = req.userId;
             if (!id) throw new Validation('id is required');
-            const users = await User.findAll({
+            const tasks = await Task.findAll({
                 where: {
-                    id: id
+                    id: id,
+                    userId: userId
                 }
             });
-            return res.status(200).json(users);
+            return res.status(200).json(tasks);
         } catch (error) {
             return res.status(400).json({
                 'status': '400',
@@ -52,13 +62,15 @@ class UserController {
     async delete(req, res) {
         try {
             const { id } = req.params;
+            const userId = req.userId;
             if (!id) throw new Validation('id is required');
-            const users = await User.destroy({
+            const task = await Task.destroy({
                 where: {
-                    id: id
+                    id: id,
+                    userId: userId
                 }
             });
-            return res.status(200).json(users);
+            return res.status(200).json(task);
         } catch (error) {
             return res.status(400).json({
                 'status': '400',
@@ -69,22 +81,23 @@ class UserController {
 
     async update(req, res) {
         try {
-            const data = {
-                name: req.body.name,
-                email: req.body.email,
-                phone: req.body.phone,
-                password: req.body.password,
-            }
-           
             const { id } = req.params;
+            const userId = req.userId;
             if (!id) throw new Validation('id is required');
-            const user = await User.update(data, {
+            const data = {
+                title: req.body.title,
+                description: req.body.description,
+                alarm: req.body.alarm,
+                status: 'Pendente'
+            }
+            const task = await Task.update(data, {
                 where: {
-                    id: id
+                    id: id,
+                    userId: userId
                 },
                 individualHooks: true
             });
-            return res.status(200).json(user);
+            return res.status(200).json(task);
         } catch (error) {
             return res.status(400).json({
                 'status': '400',
@@ -93,4 +106,4 @@ class UserController {
         }
     }
 }
-module.exports = UserController;
+module.exports = TaskController;
