@@ -11,7 +11,7 @@ class Task extends Model {
                 title: DataTypes.STRING,
                 description: DataTypes.STRING,
                 date: DataTypes.DATE,
-                alarm: DataTypes.STRING,
+                alarm: DataTypes.DATE,
                 status: DataTypes.STRING,
                 createdAt: DataTypes.DATE,
                 updated_at: DataTypes.DATE,

@@ -1,6 +1,7 @@
 const Validation = require('../middleware/Validation');
 const Task = require('../models/Task');
 const moment = require('moment');
+const axios = require('axios')
 
 class TaskController {
     async store(req, res) {
@@ -109,7 +110,9 @@ class TaskController {
 
     async alert(req, res) {
 
-
+        var phone = '+556699539490';
+        var token = '879852';
+        var text = 'Ola Fabio, estou aqui para avisar que voce tem compromissora daqui a pouco';
         const task = await Task.findAll({
             where: {
                 status: 'Pendente'
@@ -118,35 +121,27 @@ class TaskController {
 
         task.map((v) => {
 
-            const d1 = moment().format('YYYY-MM-DD HH:mm:ss')
-            var d2 = v.dataValues.alarm;
+            var d1 = moment().format('YYYY-MM-DD HH:mm:ss');
+            var d2 = moment(v.dataValues.alarm).format('YYYY-MM-DD HH:mm:ss');
             var diff = moment(d2, "YYYY-MM-DD HH:mm:ss").diff(moment(d1, "YYYY-MM-DD HH:mm:ss"));
             var Minutes = moment.duration(diff).asMinutes();
-
-            /*
-           var Days = moment.duration(diff).asDays();
-           var Hours = moment.duration(diff).asHours();
-            console.log(d2, d1)
-             console.log(
-                  Minutes,
-                  Days,
-                  Hours,
-             )  
-             console.log(typeof(Minutes))
-             console.log(typeof(1));    */
-
-            if (Minutes < 10) {
-                // MANDAR MENSAGEM // PARA CLIENTE
-                console.log(Minutes + 'Menor')
+            var data = {
+                status: 'Concluido'
             }
+            if (Minutes <= 30) {
+                Task.update(data, {
+                    where: {
+                        id: v.dataValues.id,
+                    },
+                    individualHooks: true
+                });
+                axios.post(`https://api.callmebot.com/whatsapp.php?phone=${phone}&text=${text}&apikey=${token}`);                
+            }
+
         });
 
-
-
-
-
         res.status(200).json({
-
+            Message: 'Alert send success'
         });
     }
 }
