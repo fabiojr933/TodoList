@@ -150,7 +150,7 @@ class TaskController {
             var data = {
                 status: 'Concluido'
             }
-            if (Minutes <= 30) {
+            if (Minutes <= 30 && Minutes >= 10) {
                 Task.update(data, {
                     where: {
                         id: v.dataValues.id,
@@ -170,23 +170,3 @@ class TaskController {
 module.exports = TaskController;
 
 //https://www.npmjs.com/package/node-signalr
-/*
-var today  = moment("Tue May 23 2016 09:00:00 GMT-0300 (BRT)");
-var day = moment("Thu May 19 2016 05:00:00 GMT-0300 (BRT)");
-
-var duracao = moment.duration(today.diff(day));
-var horas = duracao.asHours();
-console.log(horas)
-
-
- var diff = moment(d1, "YYYY-MM-DD HH:mm:ss").diff(moment(d2, "YYYY-MM-DD HH:mm:ss"));
-            var Minutes = moment.duration(diff).asMinutes();
-            var Days = moment.duration(diff).asDays();
-            var Hours = moment.duration(diff).asHours();
-            console.log(
-                 Minutes,
-                 Days,
-                 Hours,
-            )
-
-*/
