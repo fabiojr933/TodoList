@@ -1,0 +1,84 @@
+#home {
+  grid-area: main;
+}
+
+section.home-banner img {
+  width: 100%;
+  object-fit: cover;
+  height: 512px;
+}
+
+/* BROWSE GAMES SEC */
+#browseGames {
+  padding: 0 70px;
+  margin-top: 60px;
+}
+
+#browseGames h3 {
+  font-family: "evil empire";
+  font-size: 1.4rem;
+}
+
+hr.bgHr {
+  height: 4px;
+  color: #384ee0;
+  width: 100px;
+  opacity: unset;
+  margin-top: -8px;
+}
+
+.games-scroll {
+  margin-top: 33px;
+  display: flex;
+  overflow-y: hidden;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  grid-auto-rows: 250px;
+}
+
+.eachBG {
+  position: relative;
+  margin-right: 23px;  
+  margin: 20px;
+}
+
+.bgIMG {
+  width: 100%;
+}
+
+.eachBG p {
+  border-radius: 0px 0px 22.5px 22.5px;
+  position: absolute;
+  font-family: "m-normal";
+  letter-spacing: 0.08em;
+  font-size: 1.2rem;
+  color: #ffffff;
+  top: 50px;
+  bottom: -40px;
+  background: rgba(2, 2, 2, 0.8);
+  padding: 15px 18px;
+  width: 100%;
+}
+
+/* Trending Tourneys SEC */
+#trendingTourney {
+  padding: 0 70px;
+  margin-top: 40px;
+}
+
+#trendingTourney h3 {
+  font-family: "evil empire";
+  font-size: 1.4rem;
+}
+
+/* 
+font-family: "g-thin";
+font-family: "gx-light";
+font-family: "g-light";
+font-family: "g-medium";
+font-family: "g-bold";
+font-family: "evil empire";
+*/

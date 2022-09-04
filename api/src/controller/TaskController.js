@@ -28,7 +28,27 @@ class TaskController {
             const userId = req.userId;
             const tasks = await Task.findAll({
                 where: {
-                    userId: userId
+                    userId: userId,
+                    status: 'Pendente'
+                }
+            });
+            return res.status(200).json(tasks);
+        } catch (error) {
+            return res.status(400).json({
+                'status': '400',
+                'error': error.error
+            });
+        }
+    }
+
+    
+    async finished(req, res) {
+        try {
+            const userId = req.userId;
+            const tasks = await Task.findAll({
+                where: {
+                    userId: userId,
+                    status: 'Concluido'
                 }
             });
             return res.status(200).json(tasks);
@@ -118,6 +138,8 @@ class TaskController {
                 status: 'Pendente'
             }
         });
+        console.log('********** entrou *********');
+        console.log(task);
 
         task.map((v) => {
 
@@ -135,7 +157,7 @@ class TaskController {
                     },
                     individualHooks: true
                 });
-                axios.post(`https://api.callmebot.com/whatsapp.php?phone=${phone}&text=${text}&apikey=${token}`);                
+                axios.post(`https://api.callmebot.com/whatsapp.php?phone=${phone}&text=${text}&apikey=${token}`);
             }
 
         });

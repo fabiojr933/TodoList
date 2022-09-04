@@ -17,11 +17,12 @@ route.put('/user/:id', User.update);
 
 route.post('/login', Login.Login);
 
+route.get('/task/alert', Task.alert);
 route.post('/task', Middleware.verifyJWT, Task.store);
 route.get('/task', Middleware.verifyJWT, Task.index);
+route.get('/task/finished', Middleware.verifyJWT, Task.finished);
 route.get('/task/:id', Middleware.verifyJWT, Task.findById);
 route.delete('/task/:id', Middleware.verifyJWT, Task.delete);
 route.put('/task/:id', Middleware.verifyJWT, Task.update);
-route.post('/task/alert', Task.alert);
 
 module.exports = route;

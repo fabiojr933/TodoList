@@ -1,0 +1,64 @@
+.deskNav {
+  width: 100%;
+  position: fixed;
+  display: flex;
+  z-index: 1;
+  background: #1b1b1b;
+  grid-area: header;
+  box-shadow: 0px 4px 8px 4px rgb(0 0 0 / 30%);
+  padding: 15px 60px 3px 130px;
+  justify-content: space-between;
+}
+
+.nav-list li {
+  display: inline-block;
+  margin-right: 13px;
+}
+
+ul.nav-list {
+  display: flex;
+}
+
+li.moreDropD {
+  margin-top: -5px;
+}
+
+.nav-list li a,
+.nav-list li p {
+  font-family: "evil empire";
+  color: #8c9199;
+  font-size: 1.2rem;
+}
+
+.nav-list li a:hover {
+  color: #fff;
+}
+
+.active-nav {
+  color: #fff !important;
+}
+
+img.head-logo {
+  width: 50%;
+}
+
+.nav-btn-div {
+  text-align: right;
+}
+
+.nav-btn-div a {
+  margin-left: 10px;
+}
+
+.nav-btn-div button {
+  padding: 4px 20px;
+}
+
+/* 
+font-family: "g-thin";
+font-family: "gx-light";
+font-family: "g-light";
+font-family: "g-medium";
+font-family: "g-bold";
+font-family: "evil empire";
+*/

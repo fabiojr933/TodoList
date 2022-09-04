@@ -1,0 +1,208 @@
+.form-signin {
+  background: url(../img/sign-upBG.jpg);
+  background-repeat: no-repeat;
+  background-size: cover;
+  text-align: center;
+  height: 100vh;
+  padding: 160px 0;
+}
+
+.form-h1 {
+  font-family: "evil empire";
+  margin-bottom: 27px;
+}
+
+.formField {
+  display: block;
+  margin-top: 40px;
+  margin-bottom: 19px;
+  text-align: center;
+}
+
+input.input.phoneInput {
+  width: 20%;
+  margin-right: 10px;
+  padding: 8px 20px;
+}
+
+#partitioned {
+  padding-left: 15px;
+  letter-spacing: 42px;
+  border: 0;
+  background-image: linear-gradient(
+    to left,
+    black 70%,
+    rgba(255, 255, 255, 0) 0%
+  );
+  background-position: bottom;
+  background-size: 50px 1px;
+  background-repeat: repeat-x;
+  background-position-x: 35px;
+  width: 220px;
+}
+
+.proceed-btn {
+  padding-left: 20px;
+  padding-right: 20px;
+}
+
+.greyText {
+  font-family: "g-medium";
+}
+
+.otpinput {
+  justify-content: center;
+}
+
+.otpForm {
+  width: 60px !important;
+  padding: 18px 0;
+  border-radius: 10px !important;
+  -webkit-border-radius: 10px !important;
+  -moz-border-radius: 10px !important;
+  -ms-border-radius: 10px !important;
+  -o-border-radius: 10px !important;
+}
+
+.iErr {
+  border: 2px solid rgb(255, 85, 85);
+}
+
+.dgc {
+  font-family: "g-thin";
+}
+
+.resendOtp {
+  cursor: pointer;
+  font-family: "g-medium";
+}
+
+.suFormField {
+  display: block;
+  margin-top: 17px;
+  text-align: center;
+}
+
+.suInput {
+  width: 35%;
+  margin-right: 10px;
+  padding: 13.5px 20px;
+}
+
+.signUpBtn-d {
+  width: 35%;
+  font-size: 1.4rem;
+  letter-spacing: 0.08em;
+  margin-top: 30px;
+  padding: 7px 0;
+  background-color: rgba(137, 137, 137, 1);
+}
+
+.signUpBtn {
+  width: 35%;
+  font-size: 1.4rem;
+  letter-spacing: 0.08em;
+  margin-top: 30px;
+  padding: 7px 0;
+  background-color: rgba(56, 78, 224, 1);
+}
+
+.pword {
+  text-align: right;
+}
+
+.cPword {
+  text-align: left;
+}
+
+.cPwordO {
+  width: 34%;
+}
+
+.radioDiv {
+  display: flex;
+  align-items: end;
+  margin: 0 auto;
+  margin-top: 27px;
+  width: 50%;
+  justify-content: center;
+}
+
+.pp {
+  width: 60%;
+}
+
+input[type="checkbox"] {
+  appearance: none;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  outline: none;
+  border-radius: 50px;
+  -webkit-border-radius: 50px;
+  -moz-border-radius: 50px;
+  -ms-border-radius: 50px;
+  -o-border-radius: 50px;
+}
+
+input[type="checkbox"]::after {
+  font-family: "Material Icons Outlined";
+  font-weight: 900;
+  content: "\e837";
+  font-size: 25px;
+  color: #8c9199;
+  display: none;
+}
+
+input[type="checkbox"]:checked::after {
+  display: block;
+}
+
+input[type="checkbox"]:not(:checked)::after {
+  font-family: "Material Icons Outlined";
+  content: "\e836";
+  color: #8c9199;
+  display: block;
+}
+
+.tc-blue {
+  color: #2de6ff;
+}
+
+.vSuccess {
+  text-align: center;
+}
+
+.vSuccess img {
+    width: 8.5%;
+    margin-bottom: 20px;
+}
+
+.vSuccess h1 {
+  font-family: "evil empire";
+}
+
+p.pErr {
+  margin-top: 11px;
+  font-family: "g-light";
+  margin-bottom: 0;
+}
+
+p.pErr::before {
+  display: inline;
+  content: "⚠ ";
+  font-size: 1.2rem;
+}
+
+.error {
+  border: 1px solid red !important;
+}
+/* 
+font-family: "g-thin";
+font-family: "gx-light";
+font-family: "g-light";
+font-family: "g-medium";
+font-family: "g-bold";
+font-family: "evil empire";
+*/
